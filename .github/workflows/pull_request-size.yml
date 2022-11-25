@@ -4,11 +4,10 @@ on:
   pull_request
 
 jobs:
-  build:
-    name: Add Size Label to PR
-    runs-on: ubuntu-18.04
+  size-label:
+    runs-on: ubuntu-latest
     steps:
-      - name: Add Size Label to PR
-        uses: WizardOhio24/label-pr-size-action@master
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: size-label
+        uses: "pascalgn/size-label-action@v0.4.3"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
