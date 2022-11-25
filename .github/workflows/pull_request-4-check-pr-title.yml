@@ -9,7 +9,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: dylanvann/check-pull-request-title@v1
+      - uses: Slashgear/action-check-pr-title@2.0.0
         with:
-          pattern: '(?:\s|^)([A-Z]+-[0-9]+)(?=\s|$)'
+          regex: '(?:\s|^)([A-Z]+-[0-9]+)(?=\s|$)'
