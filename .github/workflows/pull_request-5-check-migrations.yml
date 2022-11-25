@@ -10,17 +10,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Migrations
-        id: check_migrations
-        uses: andstor/file-existence-action@v2.0.0
+      - uses: shufo/auto-assign-reviewer-by-files@v1.1.4
         with:
-          files: "src/**/*.sql"
-
-      - name: Add Pull Request DBA Reviewer
-        uses: hkusu/review-assign-action@v1.3.0
-        with:
-          assignees: ${{ github.actor }} # assign pull request author
-          reviewers: luismr # foo, bar, baz # if draft, assigned when draft is released
-          ready-comment: 'Ready for review :rocket:' # if there are reviewers, posted when opened or draft is released
-          merged-comment: 'It was merged. Thanks for your review :wink:' # if reviewed, posted when merged
-        if: steps.check_migrations.outputs.files_exists == 'true'
+          config: ".github/assign-by-files.yml"
+          token: ${{ secrets.GITHUB_TOKEN }}
