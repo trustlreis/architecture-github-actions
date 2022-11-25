@@ -16,6 +16,11 @@ jobs:
         with:
           files: "**/*.sql"
 
-      - name: File exists
+      - name: Add Pull Request DBA Reviewer
+        uses: hkusu/review-assign-action@v1.3.0
+        with:
+          assignees: ${{ github.actor }} # assign pull request author
+          reviewers: luismr # foo, bar, baz # if draft, assigned when draft is released
+          ready-comment: 'Ready for review :rocket:' # if there are reviewers, posted when opened or draft is released
+          merged-comment: 'It was merged. Thanks for your review :wink:' # if reviewed, posted when merged
         if: steps.check_migrations.outputs.files_exists == 'true'
-        run: echo "It exists !"
