@@ -1,5 +1,5 @@
 repo:
-- *
+- '*'
 
 pojo:
 - src/main/java/com/paywithmyback/labs/githubactions/data/*
