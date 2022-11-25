@@ -3,12 +3,19 @@ on:
   pull_request:
     types:
       - opened
+      - edited
       - synchronize
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: Slashgear/action-check-pr-title@3.0.0
+      - uses: deepakputhraya/action-pr-title@master
         with:
-          regex: '(?:\s|^)([A-Z]+-[0-9]+)(?=\s|$)'
+          regex: '(?:\s|^)([A-Z]+-[0-9]+)(?=\s|$)' # Regex the title should match.
+#          allowed_prefixes: 'feature,fix,JIRA' # title should start with the given prefix
+#          disallowed_prefixes: 'feat/,hotfix' # title should not start with the given prefix
+#          prefix_case_sensitive: false # title prefix are case insensitive
+#          min_length: 5 # Min length of the title
+#          max_length: 20 # Max length of the title
+          github_token: ${{ github.token }} # Default: ${{ github.token }}
