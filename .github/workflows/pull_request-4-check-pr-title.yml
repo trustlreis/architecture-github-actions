@@ -1,0 +1,15 @@
+name: 'Check Title Lint for PR'
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: dylanvann/check-pull-request-title@v1
+        with:
+          pattern: '(?:\s|^)([A-Z]+-[0-9]+)(?=\s|$)'
