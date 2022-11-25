@@ -1,0 +1,16 @@
+repo:
+  - '*'
+
+POJO:
+  - src/main/java/com/paywithmyback/labs/githubactions/data/*
+
+repository:
+  - src/main/java/com/paywithmyback/labs/githubactions/repos/*
+
+test:
+   - src/test/java/com/paywithmyback/labs/githubactions/*
+   - src/test/java/com/paywithmyback/labs/githubactions/**/*
+
+resource:
+  - any: 'src/main/resources/**/*'
+
