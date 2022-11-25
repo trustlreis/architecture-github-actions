@@ -23,7 +23,7 @@ import java.util.List;
 public class PojoTest {
 
     public static final String POJO_PACKAGE = "com.paywithmyback.labs.githubactions.data";
-    private static final int EXPECTED_CLASS_COUNT = 1;
+    private static final int EXPECTED_CLASS_COUNT = 2;
 
     @Test
     public void ensureExpectedPojoCount() {
