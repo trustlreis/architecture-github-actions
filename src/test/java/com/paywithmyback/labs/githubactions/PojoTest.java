@@ -13,6 +13,8 @@ import com.openpojo.validation.rule.impl.NoPublicFieldsExceptStaticFinalRule;
 import com.openpojo.validation.rule.impl.SetterMustExistRule;
 import com.openpojo.validation.test.impl.GetterTester;
 import com.openpojo.validation.test.impl.SetterTester;
+import com.paywithmyback.labs.githubactions.tester.LambokEqualsAndHashCodeTester;
+import com.paywithmyback.labs.githubactions.tester.LambokToStringTester;
 
 import org.junit.jupiter.api.Test;
 
@@ -39,6 +41,8 @@ public class PojoTest {
                 .with(new EqualsAndHashCodeMatchRule())
                 .with(new NoFieldShadowingRule())
                 .with(new NoPublicFieldsExceptStaticFinalRule())
+                .with(new LambokEqualsAndHashCodeTester())
+                .with(new LambokToStringTester())
                 .build();
 
         validator.validate(POJO_PACKAGE, new FilterPackageInfo());
