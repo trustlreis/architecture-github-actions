@@ -11,3 +11,13 @@ jobs:
         uses: "pascalgn/size-label-action@v0.4.3"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          sizes: >
+            {
+              "0": "XS",
+              "100": "S",
+              "300": "M",
+              "500": "L",
+              "1000": "XL",
+              "2000": "XXL"
+            }
