@@ -1,0 +1,21 @@
+name: 'Check Migrations for PR'
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Migrations
+        id: check_migrations
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "**/*.sql"
+
+      - name: File exists
+        if: steps.check_migrations.outputs.files_exists == 'true'
+        run: echo "It exists !"
