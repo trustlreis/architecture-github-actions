@@ -10,6 +10,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - uses: batista/lint-filenames@v1
+        name: Validating migrations filenames
+        with:
+          path: './src/main/resources/migrations'
+          pattern: '(?:\s|^)([A-Z]+-[0-9]+)(?=\s|$)'
       - uses: shufo/auto-assign-reviewer-by-files@v1.1.4
         with:
           config: ".github/assign-by-files.yml"
