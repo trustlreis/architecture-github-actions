@@ -1,18 +1,18 @@
-name: 'Code Review by ChatGPT'
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: [pull_request]
 
-permissions:
-  contents: read
-  pull-requests: write
-
+name: ChatGPT CodeReview
 
 jobs:
-  test:
+  chatgpt_comment:
     runs-on: ubuntu-latest
+    name: Let chatgpt comment on your PR.
     steps:
-      - uses: anc95/ChatGPT-CodeReview@v1
+      - name: ChatGPT comment
+        uses: kxxt/chatgpt-action@v0.3
+        id: chatgpt
+        with:
+          number: ${{ github.event.pull_request.number }}
+          sessionToken: ${{ secrets.OPENAI_API_TOKEN }}
+          split: 'yolo'  # Use true to enable the unstable split feature.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
