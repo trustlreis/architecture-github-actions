@@ -1,6 +1,15 @@
-on: [pull_request]
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
 
 name: ChatGPT CodeReview
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   chatgpt_comment:

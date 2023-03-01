@@ -1,6 +1,15 @@
-on: [pull_request]
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
 
-name: ChatGPT CodeReview
+name: ChatGPT CodeScore
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   chatgpt_comment:
@@ -15,4 +24,3 @@ jobs:
         with:
           debug: false
           action: score
-          review_comment_lgtm: true
