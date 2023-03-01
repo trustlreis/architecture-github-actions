@@ -5,7 +5,7 @@ name: ChatGPT CodeReview
 jobs:
   chatgpt_comment:
     runs-on: ubuntu-latest
-    name: Let chatgpt comment on your PR.
+    name: Let chatgpt score on your PR.
     steps:
       - uses: unsafecoerce/chatgpt-action@main
         env:
