@@ -37,6 +37,7 @@ public class TransactionManagerService {
             throw new RuntimeException("Consumer ID %d does not exist!".formatted(consumerId));
         }
 
+        log.info("adding some log");
         return new Transaction(UUID.randomUUID().toString(), merchant.get(), consumer.get(), amount);
     }
 
