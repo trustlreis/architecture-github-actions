@@ -13,8 +13,8 @@ import com.openpojo.validation.rule.impl.NoPublicFieldsExceptStaticFinalRule;
 import com.openpojo.validation.rule.impl.SetterMustExistRule;
 import com.openpojo.validation.test.impl.GetterTester;
 import com.openpojo.validation.test.impl.SetterTester;
-import com.paywithmyback.labs.githubactions.tester.LambokEqualsAndHashCodeTester;
-import com.paywithmyback.labs.githubactions.tester.LambokToStringTester;
+import com.paywithmyback.labs.githubactions.tester.LombokEqualsAndHashCodeTester;
+import com.paywithmyback.labs.githubactions.tester.LombokToStringTester;
 
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +23,7 @@ import java.util.List;
 public class PojoTest {
 
     public static final String POJO_PACKAGE = "com.paywithmyback.labs.githubactions.data";
-    private static final int EXPECTED_CLASS_COUNT = 2;
+    private static final int EXPECTED_CLASS_COUNT = 3;
 
     @Test
     public void ensureExpectedPojoCount() {
@@ -41,8 +41,8 @@ public class PojoTest {
                 .with(new EqualsAndHashCodeMatchRule())
                 .with(new NoFieldShadowingRule())
                 .with(new NoPublicFieldsExceptStaticFinalRule())
-                .with(new LambokEqualsAndHashCodeTester())
-                .with(new LambokToStringTester())
+                .with(new LombokEqualsAndHashCodeTester())
+                .with(new LombokToStringTester())
                 .build();
 
         validator.validate(POJO_PACKAGE, new FilterPackageInfo());

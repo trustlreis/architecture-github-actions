@@ -19,20 +19,20 @@ import com.openpojo.validation.affirm.Affirm;
 import com.openpojo.validation.test.Tester;
 import com.openpojo.validation.utils.ValidationHelper;
 
-public class LambokEqualsAndHashCodeTester implements Tester {
+public class LombokEqualsAndHashCodeTester implements Tester {
 
     private final Matcher m;
     private boolean onlyDeclaredMethods = false;
 
-    public LambokEqualsAndHashCodeTester() {
+    public LombokEqualsAndHashCodeTester() {
         m = anything();
     }
 
-    public LambokEqualsAndHashCodeTester(Matcher m) {
+    public LombokEqualsAndHashCodeTester(Matcher m) {
         this.m = m;
     }
 
-    public LambokEqualsAndHashCodeTester onlyDeclaredMethods() {
+    public LombokEqualsAndHashCodeTester onlyDeclaredMethods() {
         this.onlyDeclaredMethods = true;
         return this;
     }

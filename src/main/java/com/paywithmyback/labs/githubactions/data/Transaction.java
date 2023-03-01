@@ -1,5 +1,21 @@
 package com.paywithmyback.labs.githubactions.data;
 
-public record Transaction(String uid, Merchant merchant, Consumer consumer, Double amount) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+public class Transaction {
+
+    private String uid;
+    private Merchant merchant;
+    private Consumer consumer;
+    private Double amount;
 
 }
