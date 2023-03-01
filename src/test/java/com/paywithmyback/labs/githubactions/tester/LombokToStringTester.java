@@ -10,7 +10,7 @@ import com.openpojo.validation.utils.IdentityHandlerStub;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class LambokToStringTester implements Tester {
+public class LombokToStringTester implements Tester {
 
     @Override
     public void run(PojoClass pojoClass) {

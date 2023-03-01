@@ -1,9 +1,9 @@
-name: Java Build and Test
+name: Calculate Code Coverage to PR
 
 on: [pull_request]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,9 +12,11 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'adopt'
+          distribution: 'temurin'
+
       - name: Build with Maven
-        run: mvn --batch-mode clean test install
+        run: mvn --batch-mode -X install test
+
       - name: Add coverage to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
