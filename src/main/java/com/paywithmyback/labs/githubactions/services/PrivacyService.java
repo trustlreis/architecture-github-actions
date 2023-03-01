@@ -6,6 +6,7 @@ import com.sun.istack.NotNull;
 
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -29,6 +30,6 @@ public class PrivacyService {
 
     public void dropAllData(final Long consumerId, final String reason) {
         Optional<Consumer> consumer = consumerRepository.findById(consumerId);
-        dropAllData(consumer.orElseThrow(), reason);
+        dropAllData(consumer.orElseThrow(NoSuchElementException::new), reason);
     }
 }

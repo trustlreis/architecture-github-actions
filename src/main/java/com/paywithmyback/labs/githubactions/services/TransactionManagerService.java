@@ -9,6 +9,7 @@ import com.sun.istack.NotNull;
 
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,7 +30,7 @@ public class TransactionManagerService {
         Optional<Consumer> consumer = consumerRepository.findById(consumerId);
 
         log.info("adding some log");
-        return new Transaction(UUID.randomUUID().toString(), merchant.orElseThrow(), consumer.orElseThrow(), amount);
+        return new Transaction(UUID.randomUUID().toString(), merchant.orElseThrow(NoSuchElementException::new), consumer.orElseThrow(NoSuchElementException::new), amount);
     }
 
 }
