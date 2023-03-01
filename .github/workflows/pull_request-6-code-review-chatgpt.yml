@@ -1,3 +1,4 @@
+name: 'Code Review by ChatGPT'
 on:
   pull_request:
     types: [opened, synchronize]
