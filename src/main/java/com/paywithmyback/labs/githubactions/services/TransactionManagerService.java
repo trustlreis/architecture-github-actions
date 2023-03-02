@@ -9,6 +9,7 @@ import com.sun.istack.NotNull;
 
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,19 +27,10 @@ public class TransactionManagerService {
 
     public Transaction createFakeTransaction(@NotNull final Long merchantId, @NotNull final Long consumerId, @NotNull final Double amount) {
         Optional<Merchant> merchant = merchantRepository.findById(merchantId);
-
-        if (!merchant.isPresent()) {
-            throw new RuntimeException("Merchant ID %d does not exist!".formatted(merchantId));
-        }
-
         Optional<Consumer> consumer = consumerRepository.findById(consumerId);
 
-        if (!consumer.isPresent()) {
-            throw new RuntimeException("Consumer ID %d does not exist!".formatted(consumerId));
-        }
-
         log.info("adding some log");
-        return new Transaction(UUID.randomUUID().toString(), merchant.get(), consumer.get(), amount);
+        return new Transaction(UUID.randomUUID().toString(), merchant.orElseThrow(NoSuchElementException::new), consumer.orElseThrow(NoSuchElementException::new), amount);
     }
 
 }
