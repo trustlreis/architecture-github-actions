@@ -1,14 +1,9 @@
 package com.paywithmyback.labs.githubactions.controllers;
 
 import com.paywithmyback.labs.githubactions.controllers.requests.PrivacyDropAllDataRequest;
-import com.paywithmyback.labs.githubactions.controllers.requests.TransactionCreateRequest;
-import com.paywithmyback.labs.githubactions.data.Transaction;
 import com.paywithmyback.labs.githubactions.services.PrivacyService;
-import com.paywithmyback.labs.githubactions.services.TransactionManagerService;
-import com.sun.istack.NotNull;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +23,7 @@ public class PrivacyController {
 
     @DeleteMapping
     public void dropAllData(@RequestBody PrivacyDropAllDataRequest request) {
-        Objects.nonNull(request);
+        Objects.requireNonNull(request, "request cannot be null");
         privacyService.dropAllData(request.consumerId(), request.reason());
     }
 }
