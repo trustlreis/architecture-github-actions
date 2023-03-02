@@ -1,7 +1,6 @@
 package com.paywithmyback.labs.githubactions.repos;
 
 import com.paywithmyback.labs.githubactions.data.Consumer;
-import com.paywithmyback.labs.githubactions.data.Merchant;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

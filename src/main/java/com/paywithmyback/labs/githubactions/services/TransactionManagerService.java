@@ -5,11 +5,11 @@ import com.paywithmyback.labs.githubactions.data.Merchant;
 import com.paywithmyback.labs.githubactions.data.Transaction;
 import com.paywithmyback.labs.githubactions.repos.ConsumerRepository;
 import com.paywithmyback.labs.githubactions.repos.MerchantRepository;
-import com.sun.istack.NotNull;
 
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -25,7 +25,11 @@ public class TransactionManagerService {
 
     private final ConsumerRepository consumerRepository;
 
-    public Transaction createFakeTransaction(@NotNull final Long merchantId, @NotNull final Long consumerId, @NotNull final Double amount) {
+    public Transaction createFakeTransaction(final Long merchantId, final Long consumerId, final Double amount) {
+        Objects.requireNonNull(merchantId, "merchantId cannot be null");
+        Objects.requireNonNull(consumerId, "consumerId cannot be null");
+        Objects.requireNonNull(amount, "amount cannot be null");
+
         Optional<Merchant> merchant = merchantRepository.findById(merchantId);
         Optional<Consumer> consumer = consumerRepository.findById(consumerId);
 

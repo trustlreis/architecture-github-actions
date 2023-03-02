@@ -1,4 +1,4 @@
-package com.paywithmyback.labs.githubactions;
+package com.paywithmyback.labs.githubactions.pojo;
 
 import com.openpojo.reflection.PojoClass;
 import com.openpojo.reflection.filters.FilterPackageInfo;
